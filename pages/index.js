@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import data from './data'
 
 const Index = () =>{
 
@@ -7,7 +8,14 @@ const Index = () =>{
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        console.log('valor do elemento: ',e)
+        let amount = parseInt(count)
+        if( count <= 0 ){
+            amount = 1
+        }
+        if(count  > 10){
+            amount = 10
+        }
+        setText(data.slice(0,amount))
     }
 
     return(
@@ -26,7 +34,17 @@ const Index = () =>{
                 <button type="submit" >generate</button>
             </form>
             <article>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis atque nam reprehenderit amet obcaecati iusto quaerat in earum hic praesentium, nemo excepturi aut rerum esse recusandae! Non accusamus aut quod!</p>
+                <p>
+                    {
+                        text.map((item,index)=>{
+                            return(
+                                <p key={index} >
+                                    {item}
+                                </p>
+                            )
+                        })
+                    }
+                </p>
             </article>
         </section>
     )
