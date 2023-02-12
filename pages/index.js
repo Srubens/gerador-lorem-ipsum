@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import data from './data'
+import "../node_modules/bootstrap/dist/css/bootstrap.css"
 
 const Index = () =>{
 
@@ -19,7 +20,8 @@ const Index = () =>{
     }
 
     return(
-        <section>
+        <section className='container' >
+            <div className="mt-5 d-flex justify-content-center flex-column align-items-center">
             <h3>Tired of boring lorem ipsum?</h3>
             <form onSubmit={handleSubmit} >
                 <label htmlFor='amount' >
@@ -31,9 +33,9 @@ const Index = () =>{
                     onChange={(e) => setCount(e.target.value)}
 
                 />
-                <button type="submit" >generate</button>
+                <button className='btn btn-primary' type="submit" >generate</button>
             </form>
-            <article>
+            <article className='mt-4' >
                 <p>
                     {
                         text.map((item,index)=>{
@@ -46,6 +48,7 @@ const Index = () =>{
                     }
                 </p>
             </article>
+            </div>
         </section>
     )
 }
